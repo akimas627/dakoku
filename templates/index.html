@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}ログイン画面{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('home') }}">
+        <div>
+            <label for="mail">mailを入力</label>
+            <input type="text" name="mail" required>
+        </div>
+        <div>
+            <label for="pass">パスワードを入力</label>
+            <input type="password" name="password" minlength="8" required>
+        </div>
+        <div>
+            <input type="submit" value="ログイン">
+        </div>
+    </form>
+{% endblock %}

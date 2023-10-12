@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}打刻{% endblock %}
+
+{% block content %}
+<div id="clock">{{ time }}</div>
+    <script type="text/javascript">
+
+        //時間を取得
+        function getTime(){
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+            var timeString = hours + ':' + minutes + ':' + seconds;
+
+            document.getElementById('clock').innerHTML = timeString;
+        } 
+        // 1秒ごとに時計を更新
+        setInterval("getTime();", 1000);
+        
+        // ページ読み込み時に初回の表示を行う
+        window.onload = function() {
+            getTime();
+        }
+    </script>
+
+{% endblock %}
